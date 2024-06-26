@@ -1,0 +1,31 @@
+spring:
+
+  application:
+    name: integracao_logistica
+    transfer:
+      transaction:
+        retries: 2
+        tempo_ms: 1000
+      notify:
+        time_ms: 1000
+      external:
+        client:
+          url: https://util.devi.tools/api
+  datasource:
+    url: jdbc:postgresql://localhost:5432/picpay_transfer
+    username: postgres
+    password: 123456
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+
+
+logging:
+  level:
+    root: INFO
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
